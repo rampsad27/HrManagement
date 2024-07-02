@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ListViewVertical extends StatefulWidget {
   const ListViewVertical({
@@ -19,7 +20,9 @@ class _ListViewVerticalState extends State<ListViewVertical> {
       itemCount: 6,
       itemBuilder: (context, index) {
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            context.go('/userlist/userdetail');
+          },
           child: Container(
             margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
             // width: 240,
