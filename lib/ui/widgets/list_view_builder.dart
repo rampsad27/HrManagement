@@ -21,9 +21,9 @@ class _ListViewVerticalState extends State<ListViewVertical> {
         return InkWell(
           onTap: () {},
           child: Container(
-            margin: const EdgeInsets.only(right: 8),
-            width: 240,
-            height: 240,
+            margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+            // width: 240,
+            height: 120,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
@@ -36,41 +36,38 @@ class _ListViewVerticalState extends State<ListViewVertical> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'hi',
-                        // widget.plantModelList[index].name,
-                        style: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'hi2',
-                        // widget.plantModelList[index].type,
-                        style: TextStyle(
-                          fontSize: 15,
-                          // color: appColor.info,
-                        ),
-                      ),
                       Row(
                         children: [
-                          Text(
-                            'hi3',
-                            // "\$${widget.plantModelList[index].price.toString()}",
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundImage: NetworkImage(
+                                'https://img.freepik.com/free-photo/pretty-smiling-joyfully-female-with-fair-hair-dressed-casually-looking-with-satisfaction_176420-15187.jpg'),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Saina Maskey",
+                                  style: TextStyle(fontSize: 20),
+                                ),
+                                Text(
+                                  "Software Engineer",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
                             ),
                           ),
-                          SizedBox(
-                            width: 150,
-                          ),
-                          Icon(
-                            Icons.energy_savings_leaf_sharp,
-                            color: Colors.green,
-                          )
+                          Spacer(),
+                          Icon(Icons.call),
+                          Icon(Icons.message),
+                          Icon(Icons.email)
                         ],
                       ),
+                      Divider(
+                        color: Colors.grey,
+                      ),
+                      Text("Applied Data: 2024-01-01")
                     ],
                   ),
                 ),

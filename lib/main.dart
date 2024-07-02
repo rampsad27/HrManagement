@@ -4,6 +4,7 @@ import 'package:hr_management/configs/router/app_router.dart';
 import 'package:hr_management/firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
