@@ -5,13 +5,81 @@ class AppTabBarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Expanded(
+    return Expanded(
       child: TabBarView(
         children: [
-          Center(child: Text("Information Content")),
-          Center(child: Text("Bio Content")),
-          Center(child: Text("SOS Confftent")),
+          // Information Tab
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildEditableTextField(
+                    label: "Phone Number", value: "+1234567890"),
+                _buildEditableTextField(
+                    label: "Email", value: "email@example.com"),
+                _buildEditableTextField(
+                    label: "Address", value: "123 Main St, City, Country"),
+                _buildEditableTextField(
+                    label: "GitHub", value: "github.com/username"),
+                _buildEditableTextField(
+                    label: "LinkedIn", value: "linkedin.com/in/username"),
+              ],
+            ),
+          ),
+          // Bio Tab
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildEditableTextField(
+                  label: "Bio",
+                  value:
+                      "This is a short description of the user. It includes key details and background information.",
+                  maxLines: 4,
+                ),
+              ],
+            ),
+          ),
+          // SOS Tab
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                _buildEditableTextField(
+                    label: "Emergency Contact Name", value: "John Doe"),
+                _buildEditableTextField(
+                    label: "Emergency Contact Number", value: "+9876543210"),
+                _buildEditableTextField(
+                    label: "Relationship", value: "Brother"),
+              ],
+            ),
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildEditableTextField({
+    required String label,
+    required String value,
+    int maxLines = 1,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: TextField(
+        controller: TextEditingController(text: value),
+        readOnly: true, // Set readOnly to false for editable fields
+        maxLines: maxLines,
+        decoration: InputDecoration(
+          labelText: label,
+          border: InputBorder.none, // Remove border
+          hintText: label, // Display the label as hint text
+        ),
+        style:
+            const TextStyle(fontSize: 16.0), // Adjust the font size as needed
       ),
     );
   }
