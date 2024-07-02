@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hr_management/ui/shared/bottomNavigationBar.dart';
+import 'package:hr_management/ui/widgets/listViewBuilder.dart';
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -18,9 +19,7 @@ class _UserListScreenState extends State<UserListScreen> {
         title: const Center(child: Text("Candidates")),
         automaticallyImplyLeading: false,
       ),
-      // body:
-
-      //  ListView.builder(itemBuilder: ),
+      body: const ListViewVertical(),
       bottomNavigationBar: const AppBottomNavigationBar(),
     );
   }
