@@ -23,7 +23,7 @@ mixin _$UserModel {
   String get name => throw _privateConstructorUsedError;
   String get position => throw _privateConstructorUsedError;
   String get appliedDate => throw _privateConstructorUsedError;
-  String get picutre => throw _privateConstructorUsedError;
+  String get picture => throw _privateConstructorUsedError;
   int get viber => throw _privateConstructorUsedError;
   int get whatsapp => throw _privateConstructorUsedError;
   int get cell => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $UserModelCopyWith<$Res> {
       {String name,
       String position,
       String appliedDate,
-      String picutre,
+      String picture,
       int viber,
       int whatsapp,
       int cell,
@@ -81,7 +81,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? name = null,
     Object? position = null,
     Object? appliedDate = null,
-    Object? picutre = null,
+    Object? picture = null,
     Object? viber = null,
     Object? whatsapp = null,
     Object? cell = null,
@@ -107,9 +107,9 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.appliedDate
           : appliedDate // ignore: cast_nullable_to_non_nullable
               as String,
-      picutre: null == picutre
-          ? _value.picutre
-          : picutre // ignore: cast_nullable_to_non_nullable
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
               as String,
       viber: null == viber
           ? _value.viber
@@ -171,7 +171,7 @@ abstract class _$$UserModelImplCopyWith<$Res>
       {String name,
       String position,
       String appliedDate,
-      String picutre,
+      String picture,
       int viber,
       int whatsapp,
       int cell,
@@ -199,7 +199,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? position = null,
     Object? appliedDate = null,
-    Object? picutre = null,
+    Object? picture = null,
     Object? viber = null,
     Object? whatsapp = null,
     Object? cell = null,
@@ -225,9 +225,9 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.appliedDate
           : appliedDate // ignore: cast_nullable_to_non_nullable
               as String,
-      picutre: null == picutre
-          ? _value.picutre
-          : picutre // ignore: cast_nullable_to_non_nullable
+      picture: null == picture
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
               as String,
       viber: null == viber
           ? _value.viber
@@ -284,7 +284,7 @@ class _$UserModelImpl implements _UserModel {
       {required this.name,
       required this.position,
       required this.appliedDate,
-      required this.picutre,
+      required this.picture,
       required this.viber,
       required this.whatsapp,
       required this.cell,
@@ -307,7 +307,7 @@ class _$UserModelImpl implements _UserModel {
   @override
   final String appliedDate;
   @override
-  final String picutre;
+  final String picture;
   @override
   final int viber;
   @override
@@ -333,7 +333,7 @@ class _$UserModelImpl implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(name: $name, position: $position, appliedDate: $appliedDate, picutre: $picutre, viber: $viber, whatsapp: $whatsapp, cell: $cell, email: $email, address: $address, github: $github, linkedIn: $linkedIn, bio: $bio, eName: $eName, eNumber: $eNumber, eRelation: $eRelation)';
+    return 'UserModel(name: $name, position: $position, appliedDate: $appliedDate, picture: $picture, viber: $viber, whatsapp: $whatsapp, cell: $cell, email: $email, address: $address, github: $github, linkedIn: $linkedIn, bio: $bio, eName: $eName, eNumber: $eNumber, eRelation: $eRelation)';
   }
 
   @override
@@ -346,7 +346,7 @@ class _$UserModelImpl implements _UserModel {
                 other.position == position) &&
             (identical(other.appliedDate, appliedDate) ||
                 other.appliedDate == appliedDate) &&
-            (identical(other.picutre, picutre) || other.picutre == picutre) &&
+            (identical(other.picture, picture) || other.picture == picture) &&
             (identical(other.viber, viber) || other.viber == viber) &&
             (identical(other.whatsapp, whatsapp) ||
                 other.whatsapp == whatsapp) &&
@@ -370,7 +370,7 @@ class _$UserModelImpl implements _UserModel {
       name,
       position,
       appliedDate,
-      picutre,
+      picture,
       viber,
       whatsapp,
       cell,
@@ -402,7 +402,7 @@ abstract class _UserModel implements UserModel {
       {required final String name,
       required final String position,
       required final String appliedDate,
-      required final String picutre,
+      required final String picture,
       required final int viber,
       required final int whatsapp,
       required final int cell,
@@ -425,7 +425,7 @@ abstract class _UserModel implements UserModel {
   @override
   String get appliedDate;
   @override
-  String get picutre;
+  String get picture;
   @override
   int get viber;
   @override

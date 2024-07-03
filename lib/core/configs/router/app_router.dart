@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 
 import 'package:hr_management/ui/screens/log_in_screen.dart';
 import 'package:hr_management/ui/screens/user_detail_screen.dart';
-import 'package:hr_management/ui/screens/user_list_screen.dart.dart';
+import 'package:hr_management/presentation/user_details/user_list_screen.dart.dart';
 
 class AppRouter {
   static final GlobalKey<NavigatorState> navigatorKey =

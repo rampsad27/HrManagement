@@ -9,7 +9,7 @@ class UserModel with _$UserModel {
     required String name,
     required String position,
     required String appliedDate,
-    required String picutre,
+    required String picture,
     required int viber,
     required int whatsapp,
     required int cell, 
