@@ -23,7 +23,10 @@ class AppRouter {
                 routes: [
                   GoRoute(
                     path: 'userdetail',
-                    builder: (context, state) => const UserDetailScreen(),
+                    builder: (context, state) {
+                      final userId = state.extra as String;
+                      return UserDetailScreen(userId: userId);
+                    },
                   ),
                 ]),
           ]),

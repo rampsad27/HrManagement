@@ -6,9 +6,8 @@ import 'package:hr_management/presentation/user_details/bloc/user_details_bloc.d
 class ListViewVertical extends StatefulWidget {
   const ListViewVertical({
     super.key,
-    //  required this.plantModelList
   });
-  // final List<PlantModel> plantModelList;
+
   @override
   State<ListViewVertical> createState() => _ListViewVerticalState();
 }
@@ -31,7 +30,7 @@ class _ListViewVerticalState extends State<ListViewVertical> {
               final user = state.userModelList![index];
               return InkWell(
                 onTap: () {
-                  context.go('/userlist/userdetail');
+                  context.go('/userlist/userdetail', extra: user.email);
                 },
                 child: Container(
                   margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
