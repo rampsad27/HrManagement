@@ -71,15 +71,14 @@ class AppTabBarView extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextField(
         controller: TextEditingController(text: value),
-        readOnly: true, // Set readOnly to false for editable fields
+        readOnly: true,
         maxLines: maxLines,
         decoration: InputDecoration(
           labelText: label,
-          border: InputBorder.none, // Remove border
-          hintText: label, // Display the label as hint text
+          border: InputBorder.none,
+          hintText: label,
         ),
-        style:
-            const TextStyle(fontSize: 16.0), // Adjust the font size as needed
+        style: const TextStyle(fontSize: 16.0),
       ),
     );
   }
