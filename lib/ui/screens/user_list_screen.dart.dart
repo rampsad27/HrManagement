@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hr_management/ui/shared/bottom_navigation_bar.dart';
+import 'package:hr_management/presentation/common/bottom_navigation_bar.dart';
 import 'package:hr_management/ui/widgets/list_view_builder.dart';
 
 class UserListScreen extends StatefulWidget {
