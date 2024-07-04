@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AppBottomNavigationBar extends StatefulWidget {
   const AppBottomNavigationBar({super.key});
@@ -23,7 +24,9 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
       items: [
         BottomNavigationBarItem(
           icon: InkWell(
-            onTap: () {},
+            onTap: () {
+              context.go('/userlist');
+            },
             child: const Icon(Icons.home_rounded),
           ),
           label: '',
@@ -32,8 +35,12 @@ class _AppBottomNavigationBarState extends State<AppBottomNavigationBar> {
           icon: Icon(Icons.chat_outlined),
           label: '',
         ),
-        const BottomNavigationBarItem(
-          icon: Icon(Icons.account_circle_rounded),
+        BottomNavigationBarItem(
+          icon: InkWell(
+              onTap: () {
+                context.go('/logout');
+              },
+              child: const Icon(Icons.account_circle_rounded)),
           label: '',
         ),
       ],

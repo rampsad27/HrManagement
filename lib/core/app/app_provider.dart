@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_management/core/app/app.dart';
+import 'package:hr_management/presentation/login/bloc/login_bloc.dart';
 import 'package:hr_management/presentation/user/bloc/user_details_bloc.dart';
 
 class AppProvider extends StatelessWidget {
@@ -14,6 +15,7 @@ class AppProvider extends StatelessWidget {
         BlocProvider(
           create: (context) => UserDetailsBloc()..add(GetUserEvent()),
         ),
+        BlocProvider(create: (context) => LogInBloc()..add(CheckLoggedInUser()))
       ],
       child: const HrManagementApp(),
     );
