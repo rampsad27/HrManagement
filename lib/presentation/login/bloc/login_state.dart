@@ -34,3 +34,12 @@ final class LogoutSuccess extends LogInState {
   @override
   List<Object> get props => [logoutSuccessMessage];
 }
+
+class AdminStatusChecked extends LogInState {
+  final bool isAdmin;
+
+  const AdminStatusChecked({required this.isAdmin});
+
+  @override
+  List<Object> get props => [isAdmin];
+}

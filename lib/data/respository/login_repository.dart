@@ -1,14 +1,13 @@
 import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:hr_management/data/models/login/login_model.dart';
-import 'package:hr_management/data/models/user/user_model.dart';
 import 'package:hr_management/domain/repository/ilogin_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LogInRepository implements ILogInRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   LogInRepository() {
     _getSharedPreferenceInstance();
@@ -33,6 +32,35 @@ class LogInRepository implements ILogInRepository {
       log("Erorr found"); //here
       rethrow;
     }
+  }
+
+  @override
+  Future<bool> getLoginInfo() async {
+    bool checkAdmin = false;
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user == null) {
+        log('No user is currently logged in.');
+        return checkAdmin;
+      }
+
+      final QuerySnapshot querySnapshot = await _firestore
+          .collection('login')
+          .where('email', isEqualTo: user.email)
+          .get();
+
+      if (querySnapshot.docs.isNotEmpty) {
+        checkAdmin = querySnapshot.docs.first.get('isAdmin');
+      } else {
+        log('No login information found for the user with email: ${user.email}');
+      }
+    } on FirebaseException catch (e) {
+      log('FirebaseException: $e');
+    } catch (e) {
+      log('An error occurred: $e');
+    }
+
+    return checkAdmin;
   }
 
   @override
@@ -61,25 +89,4 @@ class LogInRepository implements ILogInRepository {
       );
     }
   }
-
-  // LogInModel getUserInfoEmail() {
-  //   var email = pref?.getString("email");
-  //   return LogInModel(email: email ?? "", password: '', isAdmin: '');
-  // }
-
-  // @override
-  // Future<List<LogInModel>> getUser() async {
-  //   //from firestore
-  //   CollectionReference collectRed =
-  //       FirebaseFirestore.instance.collection('user');
-
-  //   QuerySnapshot querySnapshot = await collectRed.get();
-
-  //   final allUserData = querySnapshot.docs
-  //       .map((doc) => LogInModel.fromJson(doc.data() as Map<String, dynamic>))
-  //       .toList();
-
-  //   print(allUserData);
-  //   return allUserData;
-  // }
 }

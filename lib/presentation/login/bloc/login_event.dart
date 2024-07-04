@@ -20,3 +20,5 @@ class CheckLoggedInUser extends LogInEvent {
 }
 
 final class LogOutRequested extends LogInEvent {}
+
+final class CheckAdminStatus extends LogInEvent {}

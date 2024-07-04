@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_management/core/service_locator/service_locator.dart';
 import 'package:hr_management/domain/repository/ilogin_repository.dart';
 
@@ -32,7 +32,7 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
         }
       } catch (e) {
         emit(UnAuthenticated());
-      } // bool isLoggedIn = await authenticationRepository.isUserLoggedIn();
+      }
     });
 
     on<LogOutRequested>((event, emit) async {
@@ -40,6 +40,16 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
 
       await _logInRepository.signOut();
       emit(const LogoutSuccess(logoutSuccessMessage: "logoutSuccessMessage"));
+    });
+
+    on<CheckAdminStatus>((event, emit) async {
+      emit(LogInLoadInProgress());
+      try {
+        bool isAdmin = await _logInRepository.getLoginInfo();
+        emit(AdminStatusChecked(isAdmin: isAdmin));
+      } catch (e) {
+        emit(LogInFailure(message: e.toString()));
+      }
     });
   }
   final ILogInRepository _logInRepository = getIt.get<ILogInRepository>();
