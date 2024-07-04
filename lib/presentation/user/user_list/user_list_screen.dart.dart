@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hr_management/presentation/common/bottom_navigation_bar.dart';
-import 'package:hr_management/ui/widgets/list_view_builder.dart';
+import 'package:hr_management/presentation/user/user_list/widgets/list_view_builder.dart';
 
 class UserListScreen extends StatefulWidget {
   const UserListScreen({super.key});
@@ -15,7 +15,8 @@ class _UserListScreenState extends State<UserListScreen> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 219, 233, 246),
       appBar: AppBar(
-        // backgroundColor: const Color.fromARGB(255, 219, 233, 246),
+        surfaceTintColor: Colors.transparent,
+        backgroundColor: Colors.white,
         title: const Center(child: Text("Candidates")),
         automaticallyImplyLeading: false,
       ),

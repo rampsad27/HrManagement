@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hr_management/presentation/user_details/bloc/user_details_bloc.dart';
+import 'package:hr_management/presentation/user/bloc/user_details_bloc.dart';
 
 class ListViewVertical extends StatefulWidget {
   const ListViewVertical({
@@ -78,7 +78,7 @@ class _ListViewVerticalState extends State<ListViewVertical> {
                             const Divider(
                               color: Colors.grey,
                             ),
-                            Text(user.appliedDate)
+                            Text('Applied Date: ${user.appliedDate}')
                           ],
                         ),
                       ),

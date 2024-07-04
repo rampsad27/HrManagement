@@ -37,6 +37,9 @@ class _LogInScreenState extends State<LogInScreen> {
                   border: OutlineInputBorder(),
                   hintText: 'Password'),
             ),
+            const SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
                 onPressed: () {
                   context.go('/userlist');
