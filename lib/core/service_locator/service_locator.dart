@@ -6,8 +6,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 final getIt = GetIt.instance;
 
 void setup() {
-  InitRepository.init();
   getIt.registerSingletonAsync<SharedPreferences>(
       () async => SharedPreferences.getInstance());
-  // InitBloc.init();
+  InitRepository.init();
+  InitBloc.init();
 }

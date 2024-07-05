@@ -23,11 +23,11 @@ class _GridViewUsersState extends State<GridViewUsers> {
         } else if (state.userModelList != null &&
             state.userModelList!.isNotEmpty) {
           return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
+            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+              // crossAxisCount: 2,
               childAspectRatio: 1,
               crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+              mainAxisSpacing: 10, maxCrossAxisExtent: 700,
             ),
             itemCount: state.userModelList!.length,
             itemBuilder: (context, index) {

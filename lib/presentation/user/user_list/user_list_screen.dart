@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:hr_management/presentation/common/bottom_navigation_bar.dart';
+import 'package:hr_management/presentation/user/user_list/widgets/grid_view_builder.dart';
 import 'package:hr_management/presentation/user/user_list/widgets/list_view_builder.dart';
 
 class UserListScreen extends StatefulWidget {
@@ -15,12 +18,19 @@ class _UserListScreenState extends State<UserListScreen> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 219, 233, 246),
       appBar: AppBar(
-        surfaceTintColor: Colors.transparent,
-        backgroundColor: Colors.white,
         title: const Center(child: Text("Candidates")),
         automaticallyImplyLeading: false,
       ),
-      body: const ListViewVertical(),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          log("constraints.maxWidth: ${constraints.maxWidth}");
+          if (constraints.maxWidth < 600) {
+            return const ListViewVertical();
+          } else {
+            return const GridViewUsers();
+          }
+        },
+      ),
       bottomNavigationBar: const AppBottomNavigationBar(),
     );
   }

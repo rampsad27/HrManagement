@@ -54,40 +54,46 @@ class _LogInScreenState extends State<LogInScreen> {
         child: Scaffold(
           body: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextFormField(
-                  controller: _emailController,
-                  decoration: const InputDecoration(
-                      fillColor: Colors.amber,
-                      border: OutlineInputBorder(),
-                      hintText: 'Email'),
+            child: Center(
+              child: SizedBox(
+                height: 200,
+                width: 300,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextFormField(
+                      controller: _emailController,
+                      decoration: const InputDecoration(
+                          fillColor: Colors.amber,
+                          border: OutlineInputBorder(),
+                          hintText: 'Email'),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      controller: _passwordController,
+                      obscureText: true,
+                      decoration: const InputDecoration(
+                          fillColor: Colors.amber,
+                          border: OutlineInputBorder(),
+                          hintText: 'Password'),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    BlocBuilder<LogInBloc, LogInState>(
+                      builder: (context, state) {
+                        return ElevatedButton(
+                            onPressed: () {
+                              state is LogInLoadInProgress ? null : _login();
+                            },
+                            child: const Text("LogIn"));
+                      },
+                    )
+                  ],
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  decoration: const InputDecoration(
-                      fillColor: Colors.amber,
-                      border: OutlineInputBorder(),
-                      hintText: 'Password'),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                BlocBuilder<LogInBloc, LogInState>(
-                  builder: (context, state) {
-                    return ElevatedButton(
-                        onPressed: () {
-                          state is LogInLoadInProgress ? null : _login();
-                        },
-                        child: const Text("LogIn"));
-                  },
-                )
-              ],
+              ),
             ),
           ),
         ),
