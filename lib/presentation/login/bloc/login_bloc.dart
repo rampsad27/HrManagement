@@ -42,15 +42,15 @@ class LogInBloc extends Bloc<LogInEvent, LogInState> {
       emit(const LogoutSuccess(logoutSuccessMessage: "logoutSuccessMessage"));
     });
 
-    on<CheckAdminStatus>((event, emit) async {
-      emit(LogInLoadInProgress());
-      try {
-        bool isAdmin = await _logInRepository.getLoginInfo();
-        emit(AdminStatusChecked(isAdmin: isAdmin));
-      } catch (e) {
-        emit(LogInFailure(message: e.toString()));
-      }
-    });
+    // on<CheckAdminStatus>((event, emit) async {
+    //   emit(LogInLoadInProgress());
+    //   try {
+    //     bool isAdmin = await _logInRepository.getLoginInfo();
+    //     emit(AdminStatusChecked(isAdmin: isAdmin));
+    //   } catch (e) {
+    //     emit(LogInFailure(message: e.toString()));
+    //   }
+    // });
   }
   final ILogInRepository _logInRepository = getIt.get<ILogInRepository>();
 }

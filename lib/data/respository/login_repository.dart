@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class LogInRepository implements ILogInRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  // final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   LogInRepository() {
     _getSharedPreferenceInstance();
@@ -34,34 +34,34 @@ class LogInRepository implements ILogInRepository {
     }
   }
 
-  @override
-  Future<bool> getLoginInfo() async {
-    bool checkAdmin = false;
-    try {
-      final user = _firebaseAuth.currentUser;
-      if (user == null) {
-        log('No user is currently logged in.');
-        return checkAdmin;
-      }
+  // @override
+  // Future<bool> getLoginInfo() async {
 
-      final QuerySnapshot querySnapshot = await _firestore
-          .collection('login')
-          .where('email', isEqualTo: user.email)
-          .get();
+  //   try {
+  //     final user = _firebaseAuth.currentUser;
+  //     if (user == null) {
+  //       log('No user is currently logged in.');
+  //       return checkAdmin;
+  //     }
 
-      if (querySnapshot.docs.isNotEmpty) {
-        checkAdmin = querySnapshot.docs.first.get('isAdmin');
-      } else {
-        log('No login information found for the user with email: ${user.email}');
-      }
-    } on FirebaseException catch (e) {
-      log('FirebaseException: $e');
-    } catch (e) {
-      log('An error occurred: $e');
-    }
+  //     final QuerySnapshot querySnapshot = await _firestore
+  //         .collection('user')
+  //         .where('email', isEqualTo: user.email)
+  //         .get();
 
-    return checkAdmin;
-  }
+  //     if (querySnapshot.docs.isNotEmpty) {
+  //       checkAdmin = querySnapshot.docs.first.get('isAdmin');
+  //     } else {
+  //       log('No login information found for the user with email: ${user.email}');
+  //     }
+  //   } on FirebaseException catch (e) {
+  //     log('FirebaseException: $e');
+  //   } catch (e) {
+  //     log('An error occurred: $e');
+  //   }
+
+  //   return checkAdmin;
+  // }
 
   @override
   Future<void> signOut() async {

@@ -35,11 +35,11 @@ final class LogoutSuccess extends LogInState {
   List<Object> get props => [logoutSuccessMessage];
 }
 
-class AdminStatusChecked extends LogInState {
-  final bool isAdmin;
+// class AdminStatusChecked extends LogInState {
+//   final bool isAdmin;
 
-  const AdminStatusChecked({required this.isAdmin});
+//   const AdminStatusChecked({required this.isAdmin});
 
-  @override
-  List<Object> get props => [isAdmin];
-}
+//   @override
+//   List<Object> get props => [isAdmin];
+// }

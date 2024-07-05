@@ -35,6 +35,7 @@ mixin _$UserModel {
   String get eName => throw _privateConstructorUsedError;
   int get eNumber => throw _privateConstructorUsedError;
   String get eRelation => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +63,8 @@ abstract class $UserModelCopyWith<$Res> {
       String bio,
       String eName,
       int eNumber,
-      String eRelation});
+      String eRelation,
+      String password});
 }
 
 /// @nodoc
@@ -93,6 +95,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? eName = null,
     Object? eNumber = null,
     Object? eRelation = null,
+    Object? password = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -155,6 +158,10 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.eRelation
           : eRelation // ignore: cast_nullable_to_non_nullable
               as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -182,7 +189,8 @@ abstract class _$$UserModelImplCopyWith<$Res>
       String bio,
       String eName,
       int eNumber,
-      String eRelation});
+      String eRelation,
+      String password});
 }
 
 /// @nodoc
@@ -211,6 +219,7 @@ class __$$UserModelImplCopyWithImpl<$Res>
     Object? eName = null,
     Object? eNumber = null,
     Object? eRelation = null,
+    Object? password = null,
   }) {
     return _then(_$UserModelImpl(
       name: null == name
@@ -273,6 +282,10 @@ class __$$UserModelImplCopyWithImpl<$Res>
           ? _value.eRelation
           : eRelation // ignore: cast_nullable_to_non_nullable
               as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -295,7 +308,8 @@ class _$UserModelImpl implements _UserModel {
       required this.bio,
       required this.eName,
       required this.eNumber,
-      required this.eRelation});
+      required this.eRelation,
+      required this.password});
 
   factory _$UserModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserModelImplFromJson(json);
@@ -330,10 +344,12 @@ class _$UserModelImpl implements _UserModel {
   final int eNumber;
   @override
   final String eRelation;
+  @override
+  final String password;
 
   @override
   String toString() {
-    return 'UserModel(name: $name, position: $position, appliedDate: $appliedDate, picture: $picture, viber: $viber, whatsapp: $whatsapp, cell: $cell, email: $email, address: $address, github: $github, linkedIn: $linkedIn, bio: $bio, eName: $eName, eNumber: $eNumber, eRelation: $eRelation)';
+    return 'UserModel(name: $name, position: $position, appliedDate: $appliedDate, picture: $picture, viber: $viber, whatsapp: $whatsapp, cell: $cell, email: $email, address: $address, github: $github, linkedIn: $linkedIn, bio: $bio, eName: $eName, eNumber: $eNumber, eRelation: $eRelation, password: $password)';
   }
 
   @override
@@ -360,7 +376,9 @@ class _$UserModelImpl implements _UserModel {
             (identical(other.eName, eName) || other.eName == eName) &&
             (identical(other.eNumber, eNumber) || other.eNumber == eNumber) &&
             (identical(other.eRelation, eRelation) ||
-                other.eRelation == eRelation));
+                other.eRelation == eRelation) &&
+            (identical(other.password, password) ||
+                other.password == password));
   }
 
   @JsonKey(ignore: true)
@@ -381,7 +399,8 @@ class _$UserModelImpl implements _UserModel {
       bio,
       eName,
       eNumber,
-      eRelation);
+      eRelation,
+      password);
 
   @JsonKey(ignore: true)
   @override
@@ -413,7 +432,8 @@ abstract class _UserModel implements UserModel {
       required final String bio,
       required final String eName,
       required final int eNumber,
-      required final String eRelation}) = _$UserModelImpl;
+      required final String eRelation,
+      required final String password}) = _$UserModelImpl;
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
       _$UserModelImpl.fromJson;
@@ -448,6 +468,8 @@ abstract class _UserModel implements UserModel {
   int get eNumber;
   @override
   String get eRelation;
+  @override
+  String get password;
   @override
   @JsonKey(ignore: true)
   _$$UserModelImplCopyWith<_$UserModelImpl> get copyWith =>

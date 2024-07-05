@@ -5,5 +5,5 @@ abstract interface class ILogInRepository {
       String email, String password);
   Future<void> signOut();
   Future<UserCredential> getUserInfo();
-  Future<bool> getLoginInfo();
+  // Future<bool> getLoginInfo();
 }

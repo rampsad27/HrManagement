@@ -3,8 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_management/presentation/user/bloc/user_details_bloc.dart';
 
 class AppTabBarView extends StatelessWidget {
-  final bool isEditing;
-  const AppTabBarView({Key? key, required this.isEditing}) : super(key: key);
+  const AppTabBarView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,40 +13,25 @@ class AppTabBarView extends StatelessWidget {
         return Expanded(
           child: TabBarView(
             children: [
+              // Information Tab
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildEditableTextField(
-                      label: "Phone Number",
-                      value: user.cell.toString(),
-                      isEditable: isEditing,
-                    ),
+                        label: "Phone Number", value: user.cell.toString()),
+                    _buildEditableTextField(label: "Email", value: user.email),
                     _buildEditableTextField(
-                      label: "Email",
-                      value: user.email,
-                      isEditable: isEditing,
-                    ),
+                        label: "Address", value: user.address, maxLines: 2),
                     _buildEditableTextField(
-                      label: "Address",
-                      value: user.address,
-                      maxLines: 2,
-                      isEditable: isEditing,
-                    ),
+                        label: "GitHub", value: user.github),
                     _buildEditableTextField(
-                      label: "GitHub",
-                      value: user.github,
-                      isEditable: isEditing,
-                    ),
-                    _buildEditableTextField(
-                      label: "LinkedIn",
-                      value: user.linkedIn,
-                      isEditable: isEditing,
-                    ),
+                        label: "LinkedIn", value: user.linkedIn),
                   ],
                 ),
               ),
+              // Bio Tab
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
@@ -57,31 +41,23 @@ class AppTabBarView extends StatelessWidget {
                       label: "Bio",
                       value: user.bio,
                       maxLines: 12,
-                      isEditable: isEditing,
                     ),
                   ],
                 ),
               ),
+              // SOS Tab
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildEditableTextField(
-                      label: "Emergency Contact Name",
-                      value: user.eName,
-                      isEditable: isEditing,
-                    ),
+                        label: "Emergency Contact Name", value: user.eName),
                     _buildEditableTextField(
-                      label: "Emergency Contact Number",
-                      value: user.eNumber.toString(),
-                      isEditable: isEditing,
-                    ),
+                        label: "Emergency Contact Number",
+                        value: user.eNumber.toString()),
                     _buildEditableTextField(
-                      label: "Relationship",
-                      value: user.eRelation,
-                      isEditable: isEditing,
-                    ),
+                        label: "Relationship", value: user.eRelation),
                   ],
                 ),
               ),
@@ -95,18 +71,17 @@ class AppTabBarView extends StatelessWidget {
   Widget _buildEditableTextField({
     required String label,
     required String value,
-    bool isEditable = false,
     int maxLines = 1,
   }) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: TextField(
         controller: TextEditingController(text: value),
-        readOnly: !isEditable,
+        readOnly: true,
         maxLines: maxLines,
         decoration: InputDecoration(
           labelText: label,
-          border: isEditable ? const OutlineInputBorder() : InputBorder.none,
+          border: InputBorder.none,
           hintText: label,
         ),
         style: const TextStyle(fontSize: 16.0),
