@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hr_management/presentation/user/bloc/user_details_bloc.dart';
+import 'package:hr_management/presentation/user/common/user_list_details.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ListViewVertical extends StatefulWidget {
   const ListViewVertical({
@@ -22,8 +24,10 @@ class _ListViewVerticalState extends State<ListViewVertical> {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (state.userModelList != null &&
-            state.userModelList!.isNotEmpty) {
+        } else if (state.userModelList != null
+            //  &&
+            //     state.userModelList!.isNotEmpty
+            ) {
           return ListView.builder(
             itemCount: state.userModelList!.length,
             itemBuilder: (context, index) {
@@ -33,56 +37,15 @@ class _ListViewVerticalState extends State<ListViewVertical> {
                   context.go('/userlist/userdetail', extra: user.email);
                 },
                 child: Container(
-                  margin: const EdgeInsets.fromLTRB(12, 12, 12, 0),
-                  // width: 240,
-                  height: 120,
+                  height: 140,
+                  margin: const EdgeInsets.only(bottom: 12),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 30,
-                                  backgroundImage: NetworkImage(user.picture),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        user.name,
-                                        style: const TextStyle(fontSize: 20),
-                                      ),
-                                      Text(
-                                        user.position,
-                                        style: const TextStyle(fontSize: 15),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const Spacer(),
-                                const Icon(Icons.call),
-                                const Icon(Icons.message),
-                                const Icon(Icons.email)
-                              ],
-                            ),
-                            const Divider(
-                              color: Colors.grey,
-                            ),
-                            Text('Applied Date: ${user.appliedDate}')
-                          ],
-                        ),
-                      ),
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: UserListDetails(user: user),
                   ),
                 ),
               );

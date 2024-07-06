@@ -10,7 +10,9 @@ class AppTabBarView extends StatelessWidget {
     return BlocBuilder<UserDetailsBloc, UserDetailsState>(
       builder: (context, state) {
         final user = state.userModel!;
-        return Expanded(
+        return SizedBox(
+          height: MediaQuery.of(context).size.height *
+              0.6, // Adjust height as needed
           child: TabBarView(
             children: [
               // Information Tab

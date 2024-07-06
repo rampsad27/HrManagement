@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hr_management/presentation/user/bloc/user_details_bloc.dart';
+import 'package:hr_management/presentation/user/common/user_list_details.dart';
 import 'package:hr_management/presentation/user/user_detail/widgets/tab_bar_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class UserDetailScreen extends StatefulWidget {
   final String userId;
@@ -40,55 +42,13 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
             body: Column(
               children: [
                 Container(
-                  height: 120,
+                  height: 140,
                   decoration: const BoxDecoration(
                     color: Colors.white,
                   ),
                   child: Padding(
                     padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 30,
-                              backgroundImage: NetworkImage(
-                                user.picture,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    user.name,
-                                    style: const TextStyle(fontSize: 20),
-                                  ),
-                                  Text(
-                                    user.position,
-                                    style: const TextStyle(fontSize: 15),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            const Spacer(),
-                            const Icon(Icons.call),
-                            const Icon(Icons.message),
-                            const Icon(Icons.email),
-                          ],
-                        ),
-                        const Divider(
-                          color: Colors.grey,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text('Applied Date: ${user.appliedDate}'),
-                        ),
-                      ],
-                    ),
+                    child: UserListDetails(user: user),
                   ),
                 ),
                 Expanded(
