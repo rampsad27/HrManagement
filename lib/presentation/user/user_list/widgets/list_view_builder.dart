@@ -38,7 +38,7 @@ class _ListViewVerticalState extends State<ListViewVertical> {
                 },
                 child: Container(
                   height: 140,
-                  margin: const EdgeInsets.only(bottom: 12),
+                  margin: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(12),

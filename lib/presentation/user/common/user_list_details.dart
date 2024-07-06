@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:hr_management/data/models/user/user_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,6 +27,7 @@ class _UserListDetailsState extends State<UserListDetails> {
     );
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -54,23 +56,29 @@ class _UserListDetailsState extends State<UserListDetails> {
               ),
               const Spacer(),
               IconButton(
-                onPressed: () {
-                  launchUrl(viber);
-                },
-                icon: const Icon(Icons.call),
-              ),
+                  onPressed: () {
+                    launchUrl(viber);
+                  },
+                  icon: const FaIcon(
+                    FontAwesomeIcons.viber,
+                    color: Color.fromARGB(255, 166, 140, 170),
+                  )),
               IconButton(
-                onPressed: () {
-                  launchUrl(whatsapp);
-                },
-                icon: const Icon(Icons.whatshot_sharp),
-              ),
+                  onPressed: () {
+                    launchUrl(whatsapp);
+                  },
+                  icon: const FaIcon(
+                    FontAwesomeIcons.whatsapp,
+                    color: Colors.green,
+                  )),
               IconButton(
-                onPressed: () {
-                  launchUrl(email);
-                },
-                icon: const Icon(Icons.mail),
-              ),
+                  onPressed: () {
+                    launchUrl(email);
+                  },
+                  icon: const FaIcon(
+                    FontAwesomeIcons.envelope,
+                    color: Color.fromARGB(255, 247, 76, 24),
+                  )),
             ],
           ),
           const Divider(
